@@ -1,0 +1,274 @@
+#key to change environment Parameter
+environments: QA
+grants_to_create_in_schema:
+  - CREATE TABLE
+  - CREATE VIEW
+  - CREATE FUNCTION
+  - CREATE PROCEDURE
+  - CREATE FILE FORMAT
+  - CREATE STAGE
+  - CREATE PIPE
+  - CREATE STREAM
+  - CREATE TASK
+  
+roles:
+  - SCD_1_FR
+  - SCD_2_FR
+  - SCD_3_FR
+  - SCD_4_FR
+  - SCD_1_RO
+  - SCD_2_RO
+  - SCD_3_RO
+  - SCD_4_RO
+  - SCD_1_RW
+  - SCD_2_RW
+  - SCD_3_RW
+  - SCD_4_RW
+  - FULL_RO_DR
+  - FULL_RW_FR
+  - FULL_RW_DR
+  - SECURITYADMIN
+  - SYSADMIN
+
+system_rolemap:
+  - grantee:
+      - SECURITYADMIN
+    role: SECURITYADMIN
+  - grantee:
+      - SYSADMIN
+    role: SYSADMIN
+
+rolemap:
+  - grantee:
+      - SCD_1_FR
+    role: SCD_1_RO
+  - grantee:
+      - SCD_2_FR
+    role: SCD_2_RO
+  - grantee:
+      - SCD_3_FR
+    role: SCD_3_RO
+  - grantee:
+      - SCD_4_FR
+    role: SCD_4_RO
+  - grantee:
+      - FULL_RO_DR
+    role: SCD_1_FR
+  - grantee:
+      - FULL_RO_DR
+    role: SCD_2_FR
+  - grantee:
+      - FULL_RO_DR
+    role: SCD_3_FR
+  - grantee:
+      - FULL_RO_DR
+    role: SCD_4_FR
+  - grantee:
+      - FULL_RW_FR
+    role: SCD_1_RW
+  - grantee:
+      - FULL_RW_FR
+    role: SCD_2_RW
+  - grantee:
+      - FULL_RW_FR
+    role: SCD_3_RW
+  - grantee:
+      - FULL_RW_FR
+    role: SCD_4_RW
+  - grantee:
+      - SYSADMIN
+    role: FULL_RO_DR
+  - grantee:
+      - FULL_RW_DR
+    role: FULL_RW_FR
+  - grantee:
+      - SYSADMIN
+    role: FULL_RW_DR
+
+
+privilegemap_db:
+  - role:
+      - SCD_1_RO
+      - SCD_2_RO
+      - SCD_3_RO
+      - SCD_4_RO
+      - SCD_1_RW
+      - SCD_2_RW
+      - SCD_3_RW
+      - SCD_4_RW
+    privilege: USAGE
+    database: TEST_1
+  - role:
+      - SYSADMIN
+    privilege: MONITOR
+    database: TEST_1
+  - role:
+      - SYSADMIN
+    privilege: OWNERSHIP
+    database: TEST_1
+  - role:
+      - FULL_RW_FR
+    privilege:  CREATE SCHEMA
+    database: TEST_1
+
+privilegemap_schema:
+  - role:
+      - SCD_1_RO
+      - SCD_1_RW
+    privilege: USAGE
+    database: TEST_1
+    schema: SCD_1
+  - role:
+      - SCD_2_RO
+      - SCD_2_RW
+    privilege: USAGE
+    database: TEST_1
+    schema: SCD_2
+  - role:
+      - SCD_3_RO
+      - SCD_3_RW
+    privilege: USAGE
+    database: TEST_1
+    schema: SCD_3
+  - role:
+      - SCD_4_RO
+      - SCD_4_RW
+    privilege: USAGE
+    database: TEST_1
+    schema: SCD_4
+
+privilegemap_table:
+  - role:
+      - SCD_1_RO
+      - SCD_1_RW
+    privilege: SELECT
+    database: TEST_1
+    schema: SCD_1
+  - role:
+      - SCD_2_RO
+      - SCD_2_RW
+    privilege: SELECT
+    database: TEST_1
+    schema: SCD_2
+  - role:
+      - SCD_3_RO
+      - SCD_3_RW
+    privilege: SELECT
+    database: TEST_1
+    schema: SCD_3
+  - role:
+      - SCD_4_RO
+      - SCD_4_RW
+    privilege: SELECT
+    database: TEST_1
+    schema: SCD_4
+
+privilegemap_table_w:
+  - role:
+      - SCD_1_RW
+    privilege: INSERT
+    database: TEST_1
+    schema: SCD_1
+  - role:
+      - SCD_2_RW
+    privilege: INSERT
+    database: TEST_1
+    schema: SCD_2
+  - role:
+      - SCD_3_RW
+    privilege: INSERT
+    database: TEST_1
+    schema: SCD_3
+  - role:
+      - SCD_4_RW
+    privilege: INSERT
+    database: TEST_1
+    schema: SCD_4
+
+privilegemap_table_upd:
+  - role:
+      - SCD_1_RW
+    privilege: UPDATE
+    database: TEST_1
+    schema: SCD_1
+  - role:
+      - SCD_2_RW
+    privilege: UPDATE
+    database: TEST_1
+    schema: SCD_2
+  - role:
+      - SCD_3_RW
+    privilege: UPDATE
+    database: TEST_1
+    schema: SCD_3
+  - role:
+      - SCD_4_RW
+    privilege: UPDATE
+    database: TEST_1
+    schema: SCD_4
+
+privilegemap_table_del:
+  - role:
+      - SCD_1_RW
+    privilege: DELETE
+    database: TEST_1
+    schema: SCD_1
+  - role:
+      - SCD_2_RW
+    privilege: DELETE
+    database: TEST_1
+    schema: SCD_2
+  - role:
+      - SCD_3_RW
+    privilege: DELETE
+    database: TEST_1
+    schema: SCD_3
+  - role:
+      - SCD_4_RW
+    privilege: DELETE
+    database: TEST_1
+    schema: SCD_4
+
+privilegemap_table_truncate:
+  - role:
+      - SCD_1_RW
+    privilege: TRUNCATE
+    database: TEST_1
+    schema: SCD_1
+  - role:
+      - SCD_2_RW
+    privilege: TRUNCATE
+    database: TEST_1
+    schema: SCD_2
+  - role:
+      - SCD_3_RW
+    privilege: TRUNCATE
+    database: TEST_1
+    schema: SCD_3
+  - role:
+      - SCD_4_RW
+    privilege: TRUNCATE
+    database: TEST_1
+    schema: SCD_4
+
+privilegemap_table_all:
+  - role:
+      - FULL_RW_DR
+    privilege: ALL
+    database: TEST_1
+    schema: SCD_1
+  - role:
+      - FULL_RW_DR
+    privilege: ALL
+    database: TEST_1
+    schema: SCD_2
+  - role:
+      - FULL_RW_DR
+    privilege: ALL
+    database: TEST_1
+    schema: SCD_3
+  - role:
+      - FULL_RW_DR
+    privilege: ALL
+    database: TEST_1
+    schema: SCD_4

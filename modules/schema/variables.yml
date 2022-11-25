@@ -1,0 +1,7 @@
+environments: QA
+database: TEST_1
+schema:
+  - SCD_1
+  - SCD_2
+  - SCD_3
+  - SCD_4

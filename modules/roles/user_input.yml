@@ -1,0 +1,8 @@
+users:
+  - username: FULL_ACCESS_USER
+    user_full_name: FULL_ACCESS_USER
+    roles:
+      - FULL_RW_DR
+      - FULL_RW_FR
+    password: "@LeoMessi10"
+    default_role: FULL_RW_DR

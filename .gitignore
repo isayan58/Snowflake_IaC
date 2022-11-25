@@ -1,0 +1,8 @@
+terraform.tfstate
+terraform.tfstate.backup
+.terraform
+.terraform.lock.hcl
+variables.tf
+variable.tf
+grants_tables
+provider.tf

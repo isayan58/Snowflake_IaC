@@ -1,0 +1,69 @@
+environments: QA
+privilegemap_db:
+  - role: SYSADMIN
+    privilege: MONITOR
+    database: TEST_1
+  - role: SYSADMIN
+    privilege: OWNERSHIP
+    database: TEST_1
+  - role: FULL_RW_FR
+    privilege:  CREATE SCHEMA
+    database: TEST_1
+
+privilegemap_current_table:
+  - role: SCD_1_RW
+    privilege: 
+      - SELECT
+      - UPDATE
+      - INSERT
+      - TRUNCATE
+      - DELETE
+    database: TEST_1
+    schema: SCD_1    
+  - role: SCD_1_RO
+    privilege: 
+      - SELECT
+    database: TEST_1
+    schema: SCD_1
+  - role: SCD_2_RW
+    privilege: 
+      - SELECT
+      - UPDATE
+      - INSERT
+      - TRUNCATE
+      - DELETE
+    database: TEST_1
+    schema: SCD_2    
+  - role: SCD_2_RO
+    privilege: 
+      - SELECT
+    database: TEST_1
+    schema: SCD_2
+  - role: SCD_3_RW
+    privilege: 
+      - SELECT
+      - UPDATE
+      - INSERT
+      - TRUNCATE
+      - DELETE
+    database: TEST_1
+    schema: SCD_3    
+  - role: SCD_3_RO
+    privilege: 
+      - SELECT
+    database: TEST_1
+    schema: SCD_3	
+  - role: SCD_4_RW
+    privilege: 
+      - SELECT
+      - UPDATE
+      - INSERT
+      - TRUNCATE
+      - DELETE
+    database: TEST_1
+    schema: SCD_4    
+  - role: SCD_4_RO
+    privilege: 
+      - SELECT
+    database: TEST_1
+    schema: SCD_4

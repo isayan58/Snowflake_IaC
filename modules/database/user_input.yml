@@ -1,0 +1,3 @@
+databases:
+  - name: TEST_1
+    has_environment_schema: true
