@@ -24,7 +24,7 @@ P.S.: The tables need to be created via DDLs as it is more optimal compared to t
 
 <br/><br/>
 <h4>Update as on 02/12/2022.</h4><br/>
-Limitaion #1 removed. Now the providers are not created in each module. The providers are created in the root folder and then the required providers are passed to the corresponding modules.
+Limitation #1 removed. Now the providers are not created in each module. The providers are created in the root folder and then the required providers are passed to the corresponding modules.
 Since the provider is called from the root folder, dependencies on modules can be added as well.
 
 <b><i>Limitations as on 02-Dec-2022:</i></b>
