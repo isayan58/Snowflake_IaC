@@ -32,8 +32,7 @@ Since the provider is called from the root folder, dependencies on modules can b
 2. This code currently has the basic items required in a Snowflake environment. Extra features need to be added and implemented successfully.<br/>
 <br/>
 <i>P.S.: For the grants module we have to make sure that the provider has a warehouse as follows:</i>
-    <div style = "color:#009900; font-size:50px;
-                font-style:italic; text-align:center;">provider "snowsql" {<br/>
+    <div style = "color:#AA00AA; font-size:20px;">provider "snowsql" {<br/>
     alias = "securityadmin"<br/>
     username  = "SAYAN"<br/>
     account   = "<account locator>"<br/>
