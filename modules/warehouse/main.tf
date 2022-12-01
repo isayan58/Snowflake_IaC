@@ -3,21 +3,13 @@ terraform {
     snowflake = {
       source  = "Snowflake-Labs/snowflake"
       version = "~> 0.35"
-      #   configuration_aliases = [snowflake.sysadmin, snowflake.securityadmin, snowflake.sysadmin_qa]
+      configuration_aliases = [snowflake.sysadmin]
     }
   }
 }
 
-provider "snowflake" {
-  //required
-  username = var.snowflake_username
-  account  = var.snowflake_account
-  region   = "ap-southeast-1"
-  password = var.snowflake_password
-  role     = "SYSADMIN"
-}
-
 resource "snowflake_warehouse" "wh" {
+  provider = snowflake.sysadmin
   name                = "${each.value.name}_WH"
   comment             = "Creating warehouse."
   warehouse_size      = each.value.size
@@ -29,6 +21,7 @@ resource "snowflake_warehouse" "wh" {
 }
 
 resource "snowflake_warehouse_grant" "wh_grant" {
+  provider = snowflake.sysadmin
   warehouse_name = "${each.value.name}_WH"
   privilege      = "USAGE"
   roles = ["${each.value.name}_RO_${local.env}", "${each.value.name}_RW_${local.env}",

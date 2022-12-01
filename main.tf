@@ -1,41 +1,50 @@
-terraform {
-  required_providers {
-    snowflake = {
-      source  = "Snowflake-Labs/snowflake"
-      version = "~> 0.35"
-      #   configuration_aliases = [snowflake.sysadmin, snowflake.securityadmin, snowflake.sysadmin_qa]
-    }
-  }
-}
-
-provider "snowflake" {
-  //required
-  username = var.snowflake_username
-  account  = var.snowflake_account
-  region   = "ap-southeast-1"
-  password = var.snowflake_password
-  role     = "SYSADMIN"
-}
-
 module "database" {
   source   = "./modules/database"
+  providers = {
+    snowflake.sysadmin      = snowflake.sysadmin
+  }
+  depends_on = [
+    module.roles
+  ]
 }
 
 module "schema" {
   source = "./modules/schema"
-  # depends_on = [
-  #   module.database
-  # ]
+  providers = {
+    snowflake.sysadmin      = snowflake.sysadmin
+  }
+  depends_on = [
+    module.database
+  ]
 }
 
 module "roles" {
   source = "./modules/roles"
+  providers = {
+    snowflake.securityadmin = snowflake.securityadmin
+  }
 }
 
 module "warehouse" {
   source = "./modules/warehouse"
+  providers = {
+    snowflake.sysadmin = snowflake.sysadmin
+  }
+  depends_on = [
+    module.roles
+  ]
 }
 
 module "grants" {
   source = "./modules/grants"
+  providers = {
+    snowflake.sysadmin      = snowflake.sysadmin
+    snowflake.securityadmin = snowflake.securityadmin
+    snowsql.securityadmin = snowsql.securityadmin
+  }
+  depends_on = [
+    module.roles,
+    module.warehouse,
+    module.schema
+  ]
 }
