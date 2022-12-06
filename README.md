@@ -17,7 +17,7 @@ Github: https://github.com/isayan58/Terraform_3.0</i></b>
 <br/>
 <b><i>Limitations:</i></b>
 1. The providers are currently created in each separate module. Due to this reason the dependency cannot be created successfully. The providers should be created externally for each system roles and used as and when required.<br/>
-2. The credentials are currently stored in variable.tf file. This needs to be hidden so that the credentials are never exposed to anyone.<br/>
+2. The credentials are currently stored in provider.tf file. This needs to be hidden so that the credentials are never exposed to anyone.<br/>
 3. This code currently has the basic items required in a Snowflake environment. Extra features need to be added and implemented successfully.<br/>
 <br/><i>
 P.S.: The tables need to be created via DDLs as it is more optimal compared to table creation via Terraform.</i>
@@ -28,7 +28,7 @@ Limitation #1 removed. Now the providers are not created in each module. The pro
 Since the provider is called from the root folder, dependencies on modules can be added as well.
 
 <b><i>Limitations as on 02-Dec-2022:</i></b>
-1. The credentials are currently stored in variable.tf file. This needs to be hidden so that the credentials are never exposed to anyone.<br/>
+1. The credentials are currently stored in provider.tf file. This needs to be hidden so that the credentials are never exposed to anyone.<br/>
 2. This code currently has the basic items required in a Snowflake environment. Extra features need to be added and implemented successfully.<br/>
 <br/>
 <i>P.S.: For the grants module we have to make sure that the provider has a warehouse as follows:</i>
@@ -42,3 +42,11 @@ Since the provider is called from the root folder, dependencies on modules can b
     warehouse = "TEST_WH"<br/>
     }</div>
 <i>This is required for running the DCL commands using SnowSQL.</i>
+
+<br/><br/>
+<h4>Update as on 06-Dec-2022.</h4><br/>
+Limitation #1 from 02/12/2022 removed. The credentials in <i>provider.tf</i> have been parameterized and with the variables stored in <i>variable.tf</i> we can connect to the Snowflake account or use any other secret to as variables without actually having to use it.
+
+<b><i>Limitations as on 06-Dec-2022:</i></b>
+1. This code currently has the basic items required in a Snowflake environment. Extra features need to be added and implemented successfully.<br/>
+<br/>
