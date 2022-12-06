@@ -5,4 +5,3 @@ terraform.tfstate.backup
 variables.tf
 variable.tf
 grants_tables
-provider.tf
