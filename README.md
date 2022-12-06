@@ -2,8 +2,8 @@
 
 <b>Project Description:</b> This Terraform module can be used to completely automate a user's Snowflake environment. I have built this in a module-wise approach namely: database, schema, roles, users, warehouse and grants. Based on the environment name and the user credentials the entire infrastruucture can be automated and built at the earliest.
 
-<b><i>Initial publish: 25/11/2022.
-Author: Sayan Adhikary.
+<b><i>Initial publish: 25/11/2022.<br/>
+Author: Sayan Adhikary.<br/>
 Github: https://github.com/isayan58/Terraform_3.0</i></b>
 
 <h4>Update as on 25/11/2022.</h4>
